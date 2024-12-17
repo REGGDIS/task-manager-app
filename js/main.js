@@ -2,6 +2,7 @@ import { saveTasks, loadTasks } from './storage.js';
 import { createTask, toggleTaskComplete, deleteTask } from './taskManager.js';
 import { renderTaskList } from './domManipulation.js';
 import { showError } from './errorHandler.js';
+import './pomodoroTimer.js';
 
 // Variables globales
 const tasks = loadTasks(); // Cargar las tareas guardadas en LocalStorage
