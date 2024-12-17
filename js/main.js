@@ -43,14 +43,19 @@ function handleToggleComplete(task) {
     showNotification('Tarea marcada como completada');
 }
 
-// Función para manejar la eliminación de tareas
+// Función para manejar la eliminación de tareas con confirmación
 function handleDeleteTask(taskId) {
-    const index = tasks.findIndex(task => task.id === taskId);
-    if (index !== -1) {
-        tasks.splice(index, 1); // Eliminar la tarea del array
-        saveTasks(tasks); // Guardar los cambios en LocalStorage
-        renderTaskList(taskListElement, tasks, handleToggleComplete, handleDeleteTask); // Renderizar la lista actualizada
-        showNotification('Tarea eliminada exitosamente');
+    const confirmation = confirm('¿Estás seguro de que quieres eliminar esta tarea?');
+    if (confirmation) {
+        const index = tasks.findIndex(task => task.id === taskId);
+        if (index !== -1) {
+            tasks.splice(index, 1); // Eliminar la tarea del array
+            saveTasks(tasks); // Guardar los cambios en LocalStorage
+            renderTaskList(taskListElement, tasks, handleToggleComplete, handleDeleteTask); // Renderizar la lista actualizada
+            showNotification('Tarea eliminada exitosamente');
+        }
+    } else {
+        showNotification('La tarea no fue eliminada');
     }
 }
 
