@@ -1,6 +1,7 @@
 import { saveTasks, loadTasks } from './storage.js';
 import { createTask, toggleTaskComplete, deleteTask } from './taskManager.js';
 import { renderTaskList } from './domManipulation.js';
+import { showError } from './errorHandler.js';
 
 // Variables globales
 const tasks = loadTasks(); // Cargar las tareas guardadas en LocalStorage
@@ -31,17 +32,6 @@ function handleAddTask() {
     renderTaskList(taskListElement, tasks, handleToggleComplete, handleDeleteTask); // Renderizar la lista actualizada
 
     inputElement.value = ''; // Limpiar el campo del input
-}
-
-// Mostrar mensajes de error en la interfaz
-function showError(message) {
-    const errorElement = document.createElement('div');
-    errorElement.textContent = message;
-    errorElement.style.color = 'red';
-    errorElement.style.marginTop = '10px';
-    document.getElementById('app').appendChild(errorElement);
-
-    setTimeout(() => errorElement.remove(), 3000); // Quitar después de 3 segundos
 }
 
 // Función para manejar el marcado de tareas como completadas

@@ -63,6 +63,40 @@ h1 {
   background-color: var(--primary-hover);
 }
 
+/* Estilos para los botones de filtro */
+button {
+  padding: 8px 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+#filter-all {
+  background-color: #6c757d;
+}
+
+#filter-completed {
+  background-color: #28a745;
+}
+
+#filter-pending {
+  background-color: #ffc107;
+}
+
 #task-list {
   list-style: none;
   padding: 0;
@@ -86,16 +120,16 @@ h1 {
 /* Estilo para tareas completadas */
 .completed {
   text-decoration: line-through;
-  color: gray;
+  color: var(--complete-color);
 }
 
 .delete {
-  color: white; /* Texto blanco */
-  background-color: red; /* Fondo rojo */
-  border: none; /* Sin borde */
-  border-radius: 50%; /* Forma circular */
-  width: 30px; /* Ancho fijo */
-  height: 30px; /* Alto fijo */
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
   display: flex; /* Flexbox para centrar la X */
   justify-content: center; /* Centrado horizontal */
   align-items: center; /* Centrado vertical */
