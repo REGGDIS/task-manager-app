@@ -145,6 +145,46 @@ button:focus {
   outline: none; /* Eliminar el borde azul de enfoque */
 }
 
+.active {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #0056b3;
+}
+
+#notifications-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.notification {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 4px;
+  opacity: 0;
+  animation: fade-in 0.5s forwards;
+}
+
+.notification.success {
+  background-color: #28a745;
+}
+
+.notification.error {
+  background-color: #dc3545;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 400px) {
   #app {
     width: 90%;
