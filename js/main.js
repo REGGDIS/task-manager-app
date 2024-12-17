@@ -20,7 +20,7 @@ function handleAddTask() {
     }
 
     // Validar que no haya duplicados
-    if (tasks.some(task => task.text === taskText)) {
+    if (tasks.some(task => task.text.trim() === taskText)) {
         showError('Esta tarea ya existe');
         return;
     }
@@ -60,6 +60,27 @@ function handleDeleteTask(taskId) {
         renderTaskList(taskListElement, tasks, handleToggleComplete, handleDeleteTask); // Renderizar la lista actualizada
     }
 }
+
+// Función para filtrar y renderizar tareas
+function filterTasks(filterType) {
+    let filteredTasks = [];
+    switch (filterType) {
+        case 'completed':
+            filteredTasks = tasks.filter(task => task.completed);
+            break;
+        case 'pending':
+            filteredTasks = tasks.filter(task => !task.completed);
+            break;
+        default:
+            filteredTasks = tasks; // Todas las tareas
+    }
+    renderTaskList(taskListElement, filteredTasks, handleToggleComplete, handleDeleteTask);
+}
+
+// Eventos para los botones de filtro
+document.getElementById('filter-all').addEventListener('click', () => filterTasks('all'));
+document.getElementById('filter-completed').addEventListener('click', () => filterTasks('completed'));
+document.getElementById('filter-pending').addEventListener('click', () => filterTasks('pending'));
 
 // Inicialización
 function initApp() {
