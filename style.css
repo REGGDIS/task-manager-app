@@ -1,0 +1,123 @@
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --text-color: #333;
+  --complete-color: #888;
+  --delete-color: red;
+  --background-color: #f0f0f0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#app {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: var(--text-color);
+}
+
+.task-input {
+  display: flex;
+  gap: 10px;
+}
+
+#new-task {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#new-task:focus,
+#add-task:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+#add-task {
+  padding: 8px 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#add-task:hover {
+  background-color: var(--primary-hover);
+}
+
+#task-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+#task-list li {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+
+#task-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Estilo para tareas completadas */
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.delete {
+  color: white; /* Texto blanco */
+  background-color: red; /* Fondo rojo */
+  border: none; /* Sin borde */
+  border-radius: 50%; /* Forma circular */
+  width: 30px; /* Ancho fijo */
+  height: 30px; /* Alto fijo */
+  display: flex; /* Flexbox para centrar la X */
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  cursor: pointer; /* Manito cuando pasas el mouse */
+  font-size: 18px; /* Tamaño de la "X" */
+}
+
+.delete:hover {
+  background-color: darkred; /* Fondo más oscuro al pasar el ratón */
+}
+
+.delete:focus {
+  outline: none; /* Eliminar el borde azul de enfoque */
+}
+
+@media (max-width: 400px) {
+  #app {
+    width: 90%;
+  }
+
+  .task-input {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

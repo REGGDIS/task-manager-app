@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplicación simple para gestionar tareas, agregar, completar y eliminar fácilmente.">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Lista de Tareas</h1>
+
+        <!-- Entrada de nueva tarea -->
+        <div class="task-input">
+            <input type="text" id="new-task" placeholder="Escribe una tarea" aria-label="Campo para agregar una tarea">
+            <button id="add-task" aria-label="Agregar tarea">Agregar <span>➕</span></button>
+        </div>
+
+        <!-- Lista de tareas -->
+        <ul id="task-list"></ul>
+    </div>
+
+    <!-- Javascript -->
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>
